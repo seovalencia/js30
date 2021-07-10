@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <style>body{background: #def2ff;}.key{display:inline-flex; padding:20px;}</style>
+ </head>
+ <body>
+<h1>Play with animal sounds</h1>
+<p>Press the key according with the animal letter.</p>
+ <div id="animals" class="keys">
+	<div class="key" data-key="84"><h2><kbd>T</kbd></h2><img src="images/tiger.png" alt="Tiger" /></div>
+	<div class="key" data-key="87"><h2><kbd>W</kbd></h2><!-- <span class="sound">wolf</span> --><img src="images/wolf.png" alt="Wolf" /></div>
+	<div class="key" data-key="67"><h2><kbd>C</kbd></h2><img src="images/chicken.png" alt="Chicken" /></div>
+	<div class="key" data-key="65"><h2><kbd>A</kbd></h2><img src="images/cat.png" alt="Cat" /></div>
+	<div class="key" data-key="72"><h2><kbd>H</kbd></h2><img src="images/horse.png" alt="Horse" /></div>
+	<!-- <div id=""><h2></h2><img src="" alt="" /></div> -->
+
+	<audio data-key="84" src="sounds/tiger.wav"></audio>
+	<audio data-key="87" src="sounds/wolf.wav"></audio>
+	<audio data-key="67" src="sounds/chicken.wav"></audio>
+	<audio data-key="65" src="sounds/cat.wav"></audio>
+	<audio data-key="72" src="sounds/horse.wav"></audio>
+
+ </div>
+  <script>
+	window.addEventListener('keydown',function(e){
+		//console.log("hola");
+		console.log(e.keyCode);
+		//console.log(e);
+		const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+		console.log(audio);
+		activeDiv=document.querySelector(`div[data-key="${e.keyCode}"]`);
+		if (!audio) return;
+		audio.play();
+		setTimeout(function(){ activeDiv.style.border="2px dashed red" }, 1000);
+		setTimeout(function(){ activeDiv.style.border="none" }, 2000);
+
+		
+	});
+  </script>
+ </body>
+</html>
