@@ -1,1 +1,1 @@
-"ex1 for #js30" 
+"Examples for #js30" 
